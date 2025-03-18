@@ -1,0 +1,101 @@
+{
+  "maxSearchTime": 60,
+  "start": 0,
+  "duration": 2592000,
+  "steps": [
+    {
+      "stepId": "5c1b2f36-166b-4981-a053-b11104230af1",
+      "machineId": "45eb859b-5384-4511-9c3a-b41461cc4eb1",
+      "start": 0,
+      "duration": 1000,
+      "fixed": false,
+      "operationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4211"
+    },
+    {
+      "stepId": "3426a573-093e-49a8-b400-d82d2408e5f2",
+      "machineId": "45eb859b-5384-4511-9c3a-b41461cc4eb2",
+      "start": 0,
+      "duration": 1000,
+      "fixed": false,
+      "operationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4212"
+    },
+    {
+      "stepId": "65e8f82c-051d-4e11-84c9-f01381f8b293",
+      "machineId": "45eb859b-5384-4511-9c3a-b41461cc4eb1",
+      "start": 0,
+      "duration": 1000,
+      "fixed": false,
+      "operationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4211"
+    },
+    {
+      "stepId": "e0d205ed-fb61-41a5-8083-26b03c14cf84",
+      "machineId": "45eb859b-5384-4511-9c3a-b41461cc4eb2",
+      "start": 0,
+      "duration": 1000,
+      "fixed": false,
+      "operationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4212"
+    },
+    {
+      "stepId": "f6bab9f8-cfe7-4c23-99a9-b43cd93f5895",
+      "machineId": "45eb859b-5384-4511-9c3a-b41461cc4eb1",
+      "start": 0,
+      "duration": 1000,
+      "fixed": false,
+      "operationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4211"
+    },
+    {
+      "stepId": "7018da82-35fc-472c-beff-710ffd329ce6",
+      "machineId": "45eb859b-5384-4511-9c3a-b41461cc4eb2",
+      "start": 0,
+      "duration": 1000,
+      "fixed": false,
+      "operationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4212"
+    }
+  ],
+  "machinesSetup": [
+    {
+      "fromOperationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4211",
+      "toOperationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4211",
+      "duration": 180
+    },
+    {
+      "fromOperationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4212",
+      "toOperationId": "51b1aa2f-dc7d-4673-b6b4-515c273e4212",
+      "duration": 120
+    }
+  ],
+  "stepsOrder": [
+    {
+      "previousStepId": "5c1b2f36-166b-4981-a053-b11104230af1",
+      "nextStepId": "3426a573-093e-49a8-b400-d82d2408e5f2",
+      "overlapMin": 1,
+      "overlapMax": 600
+    },
+    {
+      "previousStepId": "65e8f82c-051d-4e11-84c9-f01381f8b293",
+      "nextStepId": "e0d205ed-fb61-41a5-8083-26b03c14cf84",
+      "overlapMin": 1,
+      "overlapMax": 600
+    },
+    {
+      "previousStepId": "f6bab9f8-cfe7-4c23-99a9-b43cd93f5895",
+      "nextStepId": "7018da82-35fc-472c-beff-710ffd329ce6",
+      "overlapMin": 1,
+      "overlapMax": 600
+    }
+  ],
+  "machinesId": [
+    "45eb859b-5384-4511-9c3a-b41461cc4eb1",
+    "45eb859b-5384-4511-9c3a-b41461cc4eb2"
+  ],
+  "operationsId": [
+    "51b1aa2f-dc7d-4673-b6b4-515c273e4211",
+    "3a177146-a002-4fe5-b292-198b6df9f8b2"
+  ],
+  "movedSteps": [
+    {
+      "stepId": "5c1b2f36-166b-4981-a053-b11104230af1",
+      "newStart": 1000
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Default ignored files
+.idea
+*.iml
+target
+.flattened-pom.xml
+__pycache__
+.venv/
+

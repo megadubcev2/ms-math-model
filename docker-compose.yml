@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  ms-math-model:
+    image: ${MS_MATH_MODEL_IMAGE}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: ms-math-model
+    ports:
+      - "5005:5000"
+    restart: unless-stopped
