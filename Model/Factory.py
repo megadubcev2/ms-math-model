@@ -42,7 +42,7 @@ class Factory:
         self.steps = steps
         self.task_machine_to_campaign_machine = task_machine_to_campaign_machine
         self.taskSteps = self.create_task_steps()
-        self.compaignSteps = self.create_campaign_steps()
+        self.campaignSteps = self.create_campaign_steps()
 
         self.machinesSetup = machinesSetup
         self.stepsOrderWithoutCampaigns = stepsOrderWithoutCampaigns

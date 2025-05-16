@@ -35,7 +35,7 @@ logging.basicConfig(
 def find_optimal():
     try:
         # Deserialize request data into DTO
-        formatted_json = json.dumps(request.json, indent=4, ensure_ascii=False)  # JSON с двойными кавычками
+        formatted_json = json.dumps(request.json, ensure_ascii=False, separators=(',', ':'))
         # app.logger.info(f"Received JSON data: {formatted_json}")
 
         logging.info("a")
@@ -54,13 +54,20 @@ def find_optimal():
         if not (status == "OPTIMAL" or status == "FEASIBLE"):
             app.logger.info(f"Received JSON data: {formatted_json}")
 
-            return jsonify(status + " проверка2"), 400
+            responseMetaDataDtoBuilder = ResponseMetaDataDtoBuilder()
+            responseMetaDataDtoBuilder.add_status(status)
+            responseDto = ResponseDto(metadata=responseMetaDataDtoBuilder.getResponseMetaDataDTO())
+
+            # Сериализация с помощью метода dict() Pydantic модели
+            response_json = responseDto.model_dump()
+            logging.info(f"Response JSON (400): {response_json}")
+            return jsonify(response_json), 400
 
         # Serialize the resolved steps into the response format
-        response_models = [OptimizationResponseDto.from_orm(item) for item in resolved_steps]
-        response_json = [model.model_dump() for model in response_models]
+        responseDto = ResponseDto(payload=resolved_steps)
+        response_json = responseDto.model_dump()
 
-        # app.logger.info(f"Received JSON data: {formatted_json}")
+        app.logger.info(f"Received JSON data: {formatted_json}")
 
         return jsonify(response_json), 200
 
@@ -105,13 +112,15 @@ def find_first_for_moved_step():
 
             responseMetaDataDtoBuilder = ResponseMetaDataDtoBuilder()
             responseMetaDataDtoBuilder.add_conflicts_with_types(
-                schedule_solver.schedule_handler_recursive.conflict_registry.get_all_conflicts_with_type()
+                schedule_solver.schedule_solver_recursive.conflict_registry.get_all_conflicts_with_type()
             )
             responseDto = ResponseDto(metadata=responseMetaDataDtoBuilder.getResponseMetaDataDTO())
             # Сериализация с помощью метода dict() Pydantic модели
             response_json = responseDto.model_dump()
             logging.info(f"Response JSON (400): {response_json}")
             return jsonify(response_json), 400
+
+        app.logger.info(f"Received JSON data: {formatted_json}")
 
         # Формирование успешного ответа
         responseDto = ResponseDto(payload=resolved_steps)
@@ -120,11 +129,15 @@ def find_first_for_moved_step():
         return jsonify(response_json), 200
 
     except ValidationError as err:
+        app.logger.info(f"Received JSON data: {formatted_json}")
+
         error_response = jsonify(err.messages)
         app.logger.info(f"Response JSON (ValidationError 400): {err.messages}")  # Логируем ошибки валидации
         return error_response, 400
 
     except Exception as e:
+        app.logger.info(f"Received JSON data: {formatted_json}")
+
         error_trace = traceback.format_exc()  # Получаем полную информацию о трассировке
         error_response = {"error": str(e), "traceback": error_trace}
         app.logger.error(f"Response JSON (500): {error_trace}")  # Логируем ошибку с трассировкой
@@ -153,7 +166,7 @@ def resolve_conflicts():
 
             responseMetaDataDtoBuilder = ResponseMetaDataDtoBuilder()
             responseMetaDataDtoBuilder.add_conflicts_with_types(
-                schedule_solver.schedule_handler_recursive.conflict_registry.get_all_conflicts_with_type()
+                schedule_solver.schedule_solver_recursive.conflict_registry.get_all_conflicts_with_type()
             )
             responseDto = ResponseDto(metadata=responseMetaDataDtoBuilder.getResponseMetaDataDTO())
             response_json = responseDto.model_dump()
@@ -166,17 +179,21 @@ def resolve_conflicts():
         responseDto = ResponseDto(payload=resolved_steps)
         response_json = responseDto.model_dump()
 
-        # app.logger.info(f"Received JSON data: {formatted_json}")
+        app.logger.info(f"Received JSON data: {formatted_json}")
 
         app.logger.info(f"Response JSON (200): {response_json}")  # Логируем ответ перед возвратом
         return jsonify(response_json), 200
 
     except ValidationError as err:
+        app.logger.info(f"Received JSON data: {formatted_json}")
+
         error_response = jsonify(err.messages)
         app.logger.info(f"Response JSON (ValidationError 400): {err.messages}")  # Логируем ошибки валидации
         return error_response, 400
 
     except Exception as e:
+        app.logger.info(f"Received JSON data: {formatted_json}")
+
         error_trace = traceback.format_exc()  # Получаем полную информацию о трассировке
         error_response = {"error": str(e), "traceback": error_trace}
         app.logger.error(f"Response JSON (500): {error_trace}")  # Логируем ошибку с трассировкой
@@ -207,7 +224,7 @@ def sort_steps():
 
             responseMetaDataDtoBuilder = ResponseMetaDataDtoBuilder()
             responseMetaDataDtoBuilder.add_conflicts_with_types(
-                schedule_solver.schedule_handler_recursive.conflict_registry.get_all_conflicts_with_type()
+                schedule_solver.schedule_solver_recursive.conflict_registry.get_all_conflicts_with_type()
             )
             responseDto = ResponseDto(metadata=responseMetaDataDtoBuilder.getResponseMetaDataDTO())
             response_json = responseDto.model_dump()
@@ -258,7 +275,7 @@ def recalculate_by_heuristics():
         if not (status == "OPTIMAL" or status == "FEASIBLE"):
             responseMetaDataDtoBuilder = ResponseMetaDataDtoBuilder()
             responseMetaDataDtoBuilder.add_conflicts_with_types(
-                schedule_solver.schedule_handler_recursive.conflict_registry.get_all_conflicts_with_type()
+                schedule_solver.schedule_solver_recursive.conflict_registry.get_all_conflicts_with_type()
             )
             app.logger.info(f"Received JSON data: {formatted_json}")
 

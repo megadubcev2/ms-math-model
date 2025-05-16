@@ -4,6 +4,8 @@ from Controller.data_load import MetadataDto, ResponseMetadataDto
 from Service.ScheduleSolver.RecursiveAlgorithm.Conflict.Model.ConflictWithType import ConflictWithType
 # from Controller.DTO.MetadataDto import MetadataDto
 from Controller.DTO.MetadataLayer import MetadataLayer
+
+
 # from Controller.DTO.ResponseMetadataDto import ResponseMetadataDto
 
 
@@ -19,6 +21,13 @@ class ResponseMetaDataDtoBuilder:
         if layer not in self.metadata_messages:
             raise ValueError(f"Неверный слой метаданных: {layer}")
         self.metadata_messages[layer].append(MetadataDto(mnemoCode=mnemo_code, payload=payload))
+
+    def add_status(self, status: str):
+        if status == "INFEASIBLE":
+            self.add_message(mnemo_code="error.infeasibleFindSolution", payload=None, layer=MetadataLayer.ERROR)
+        elif status == "UNKNOWN":
+            self.add_message(mnemo_code="error.unknownPossibilityFindSolution", payload=None, layer=MetadataLayer.ERROR)
+
 
     def add_conflicts_with_types(self, conflicts_with_type: [ConflictWithType]):
         for conflict_with_type in conflicts_with_type:

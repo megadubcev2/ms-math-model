@@ -25,25 +25,27 @@ from Controller.DTO.ResolvedStepDto import ResolvedStepDto
 class ParserDTO:
 
     def parse_to_Demand(self, demandDto):
-        return Demand(demandDto.demandId, demandDto.dueDate)
+        return Demand(demandDto.id, demandDto.dueDate)
 
     def parse_to_IdlePeriod(self, idlePeriodDto):
-        return IdlePeriod(idlePeriodDto.idlePeriodId, idlePeriodDto.machineId,
+        return IdlePeriod(idlePeriodDto.id, idlePeriodDto.machineId,
                           idlePeriodDto.start, idlePeriodDto.duration)
     def parse_to_SlowPeriod(self, slowPeriodDto):
-        return SlowPeriod(slowPeriodDto.slowPeriodId, slowPeriodDto.machineId,
-                          slowPeriodDto.start, slowPeriodDto.end - slowPeriodDto.start, float(slowPeriodDto.coefficient))
+        return SlowPeriod(slowPeriodDto.id, slowPeriodDto.machineId,
+                          slowPeriodDto.start, slowPeriodDto.duration, float(slowPeriodDto.coefficient))
 
-    def parse_to_MovedStep(self, movedStepDto):
-        return MovedStep(movedStepDto.stepId, movedStepDto.newStart)
+    def parse_to_MovedStep(self, movedStepDto, initialStart):
+        return MovedStep(movedStepDto.id, movedStepDto.newStart, initialStart)
 
     def parse_to_TaskStep(self, stepDto):
         return Step(
-            stepId=stepDto.stepId,
+            stepId=stepDto.id,
             machineId=stepDto.machineId,
             start=stepDto.start,
             duration=stepDto.duration,
             initialDuration=stepDto.initialDuration,
+            setupStart=stepDto.setupStart,
+            setupDuration=stepDto.setupDuration,
             fixed=stepDto.fixed,
             operationId=stepDto.operationId,
             type=StepType.TASK,
@@ -53,11 +55,13 @@ class ParserDTO:
 
     def parse_to_CampaignStep(self, campaignDto, step_machine_to_campaign_machine):
         return Step(
-            stepId=campaignDto.campaignId,
+            stepId=campaignDto.id,
             machineId=step_machine_to_campaign_machine[campaignDto.machineId],
             start=campaignDto.start,
             duration=campaignDto.duration,
             initialDuration=campaignDto.duration,
+            setupStart=campaignDto.setupStart,
+            setupDuration=campaignDto.setupDuration,
             fixed=campaignDto.fixed,
             operationId=campaignDto.operationId,
             type=StepType.CAMPAIGN,
@@ -88,7 +92,7 @@ class ParserDTO:
     def parse_to_Machine(self, machineDto, machineType: MachineType):
         if machineDto.operationIdBeforeActive is None:
             machineDto.operationIdBeforeActive = uuid.uuid4()
-        return Machine(machineDto.machineId, machineDto.start, machineDto.operationIdBeforeActive, machineType)
+        return Machine(machineDto.id, machineDto.start, machineDto.operationIdBeforeActive, machineType)
 
     def parse_to_NotOverlappingStepsPair(self, notOverlappingStepsPairDto):
         return NotOverlappingStepsPair(
@@ -97,9 +101,9 @@ class ParserDTO:
         )
 
     def parse_to_Factory(self, FactoryDto):
-        taskSteps = {step.stepId: self.parse_to_TaskStep(step) for step in FactoryDto.steps}
+        taskSteps = {step.id: self.parse_to_TaskStep(step) for step in FactoryDto.steps}
 
-        machines = {machine.machineId: self.parse_to_Machine(machine, machineType=MachineType.TASK_MACHINE) for machine
+        machines = {machine.id: self.parse_to_Machine(machine, machineType=MachineType.TASK_MACHINE) for machine
                     in FactoryDto.machines}
 
         task_machine_to_campaign_machine = {}
@@ -111,7 +115,7 @@ class ParserDTO:
             campaign_machine = Machine(campaign_machine_id, task_machine.start, uuid.uuid4(), MachineType.CAMPAIGN_MACHINE)
             machines[campaign_machine_id] = campaign_machine
 
-        campaignSteps = {campaign.campaignId: self.parse_to_CampaignStep(campaign, task_machine_to_campaign_machine)
+        campaignSteps = {campaign.id: self.parse_to_CampaignStep(campaign, task_machine_to_campaign_machine)
                           for campaign in FactoryDto.campaigns}
 
         steps = taskSteps | campaignSteps
@@ -133,7 +137,7 @@ class ParserDTO:
 
 
 
-        demands = {demand.demandId: self.parse_to_Demand(demand) for demand in FactoryDto.demands}
+        demands = {demand.id: self.parse_to_Demand(demand) for demand in FactoryDto.demands}
 
         fixedSteps = [steps[stepId] for stepId in steps if steps[stepId].fixed == True]
 
@@ -160,10 +164,11 @@ class ParserDTO:
         return factory, maxSearchTime
 
     def parse_Movement_Request_Dto(self, MovementRequestDto):
-        movedSteps = {moved_step_dto.stepId: self.parse_to_MovedStep(moved_step_dto) for moved_step_dto in
+        factory = self.parse_to_Factory(MovementRequestDto.factory)
+
+        movedSteps = {moved_step_dto.id: self.parse_to_MovedStep(moved_step_dto, factory.steps[moved_step_dto.id].start) for moved_step_dto in
                       MovementRequestDto.movedSteps}
 
-        factory = self.parse_to_Factory(MovementRequestDto.factory)
         maxSearchTime = MovementRequestDto.maxSearchTime
         movementType = MovementType[MovementRequestDto.movementType]
 

@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.INFO,  # Уровень логирования
 # класс в котором собраны все
 class ResolvedIntervalOrderHandler:
     def __init__(self, all_resolved_intervals: List[ResolvedInterval]):
-        logging.info("Starting initialization of ResolvedIntervalOrderHandle")
+        logging.info("Starting initialization of ResolvedIntervalOrderHandler")
 
         self.all_resolved_intervals = all_resolved_intervals
         self.machine_to_deque_start_intervals: Dict[
@@ -27,7 +27,7 @@ class ResolvedIntervalOrderHandler:
         self.machine_to_deque_end_intervals: Dict[
             UUID, DequeResolvedIntervals] = self._create_machine_to_deque_resolved_intervals(OrderType.END)
 
-        logging.info("ResolvedIntervalOrderHandle initialized successfully")
+        logging.info("ResolvedIntervalOrderHandler initialized successfully")
 
     def _create_machine_to_deque_resolved_intervals(self, order_type: OrderType) -> Dict[UUID, DequeResolvedIntervals]:
         machine_to_deque_intervals = {}

@@ -3,6 +3,8 @@ from uuid import UUID
 from ortools.sat.python import cp_model
 from ortools.sat.python.cp_model import IntervalVar, IntVar, CpSolver
 
+from Model.EntityType import EntityType
+from Model.StepType import StepType
 from Service.Factory.FactoryCreator import FactoryCreator
 from Service.Factory.FactoryCropper import FactoryCropper
 from Service.Factory.FactoryInfoProvider import FactoryInfoProvider
@@ -449,7 +451,8 @@ class ScheduleSolverOptimal:
 
         # self.add_previous_order_constraints_for_not_moved(model, demo_solver)
 
-    def set_optimization_by_magnetic_striving(self, model: cp_model.CpModel, magnetic_constraints: Dict[UUID, MagneticConstraint]):
+    def set_optimization_by_magnetic_striving(self, model: cp_model.CpModel,
+                                              magnetic_constraints: Dict[UUID, MagneticConstraint]):
         differences_with_weight_sum = model.NewIntVar(0, self.factory.duration * len(self.factory.steps) * 10000,
                                                       'differences_with_weight_sum')
         all_differences_with_weight: [IntVar] = []
@@ -495,9 +498,9 @@ class ScheduleSolverOptimal:
         logger.info(f'Решение {type_solver}:')
         logger.info(f'Статус  = {solver.StatusName(status)}')
         logger.info(f'Значение целевой функции: {solver.ObjectiveValue()}')
-
-        for important_var in self.important_vars:
-            logger.info(f"Значение переменной {important_var.name}: {solver.Value(important_var)}")
+        if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+            for important_var in self.important_vars:
+                logger.info(f"Значение переменной {important_var.name}: {solver.Value(important_var)}")
         return solver, status
 
     def solve_optimal(self) -> ([ResolvedStep], str):
@@ -535,6 +538,22 @@ class ScheduleSolverOptimal:
         self.last_solver_without_setups = demo_solver_without_setups
         self.last_solver_after_setups = solver_after_setups
         return self.create_resolved_steps(solver_after_setups), self.translate_status(status_solver_after_setups)
+
+    def solve_first(self) -> ([ResolvedStep], str):
+        demo_model = self.create_demo_model(self.factory_info_provider.maxSetup)
+        self.set_optimization_objective_by_sum_starts(demo_model)
+
+        demo_solver_without_setups, status_solver_without_setups = self.demo_solve(demo_model,
+                                                                                   self.maxSearchTime * 2 // 3 + 1,
+                                                                                   True,
+                                                                                   "без переналадок")
+        if not demo_solver_without_setups:
+            return None, "Ошибка: demo_solver_without_setups не инициализирован"
+
+        # не важны положение степов потому что все равно без переналадок
+        # важен только статус
+        return None, self.translate_status(
+            status_solver_without_setups)
 
     def solve_optimal_for_demands(self) -> ([ResolvedStep], str):
         demo_model = self.create_demo_model(self.factory_info_provider.maxSetup)
@@ -640,13 +659,12 @@ class ScheduleSolverOptimal:
     def adjust_solving_for_magnetic(self, resolved_steps_full: [ResolvedInterval],
                                     magnetic_constraints: Dict[UUID, MagneticConstraint], max_search_time) -> (
             [ResolvedStep], str):
-        print(resolved_steps_full)
+        # print(resolved_steps_full)
         demo_model = self.create_demo_model()
         self.add_sequence_constraints(demo_model, resolved_steps_full)
         # self.add_magnetic_constraints(demo_model)
         # self.set_optimization_objective_by_sum_starts(demo_model)
         self.set_optimization_by_magnetic_striving(demo_model, magnetic_constraints)
-
 
         self.add_magnetic_constraints(demo_model, resolved_steps_full, magnetic_constraints)
 
@@ -727,7 +745,7 @@ class ScheduleSolverOptimal:
             for i in range(len(step_vars_in_machine) - 1):
                 previous_step_var = step_vars_in_machine[i]
                 next_step_var = step_vars_in_machine[i + 1]
-                #logging.info(f"previous_step_var {previous_step_var.stepId} next_step_var {next_step_var.stepId}")
+                # logging.info(f"previous_step_var {previous_step_var.stepId} next_step_var {next_step_var.stepId}")
 
                 # фиксируем порядок подзадач внутри одного станка
                 model.Add(previous_step_var.end <= next_step_var.start)
@@ -774,9 +792,17 @@ class ScheduleSolverOptimal:
                               solver.Value(step_variable.start))
 
     def create_resolved_steps(self, solver: CpSolver):
+
         resolved_steps = []
         for step_var in self.all_stepVariables.values():
-            resolved_step = ResolvedStep(step_var.stepId, solver.Value(step_var.start), solver.Value(step_var.duration))
+            step = self.factory.steps[step_var.stepId]
+            if step.type == StepType.TASK:
+                entityType = EntityType.STEP
+            else:
+                entityType = EntityType.CAMPAIGN
+
+            resolved_step = ResolvedStep(step_var.stepId, entityType, solver.Value(step_var.start),
+                                         solver.Value(step_var.duration))
             if step_var.stepId in self.all_setupVariables.keys():
                 resolved_step.setupDuration = self.all_setupVariables[step_var.stepId].duration
                 resolved_step.setupStart = solver.Value(self.all_setupVariables[step_var.stepId].start)
@@ -803,7 +829,3 @@ class ScheduleSolverOptimal:
     # todo
     def get_moved_step_new_start(self, step_var: StepVariable):
         return self.movedSteps[0].newStart
-
-
-
-

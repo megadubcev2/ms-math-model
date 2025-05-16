@@ -11,6 +11,7 @@ from Service.ScheduleSolver.OptimalAlgorithm.ScheduleSolverOptimal import Schedu
 from Service.ScheduleSolver.Model.MagneticType import MagneticType
 from Service.ScheduleSolver.RecursiveAlgorithm.Conflict.ConflictRegistry import ConflictRegistry
 from Service.ScheduleSolver.RecursiveAlgorithm.Conflict.ConflictResolver import ConflictResolver
+from Service.ScheduleSolver.RecursiveAlgorithm.Conflict.ConflictResolver2 import ConflictResolver2
 from Service.ScheduleSolver.RecursiveAlgorithm.Conflict.Model.ConflictType import ConflictType
 from Service.Exceptions.ConflictException import ConflictException
 from Model.Factory import Factory
@@ -30,9 +31,34 @@ logging.basicConfig(level=logging.INFO,  # Уровень логирования
                     ])
 
 
+def log_blank_line():
+    logger = logging.getLogger()
+    handlers = logger.handlers
+    # Сохраняем старые форматтеры
+    old_formatters = [h.formatter for h in handlers]
+
+    try:
+        # Устанавливаем временный пустой формат
+        for h in handlers:
+            h.setFormatter(logging.Formatter('%(message)s'))
+        logging.info("")
+    finally:
+        # Возвращаем старые форматтеры
+        for h, fmt in zip(handlers, old_formatters):
+            h.setFormatter(fmt)
+
+
+def suppress_logging():
+    logging.disable(logging.CRITICAL)  # Отключает все логи до CRITICAL включительно
+
+
+def enable_logging():
+    logging.disable(logging.NOTSET)  # Включает логирование обратно
+
+
 class ScheduleSolverRecursive:
 
-    def __init__(self, factory_info_provider: FactoryInfoProvider, maxSearchTime=2):
+    def __init__(self, factory_info_provider: FactoryInfoProvider, conflict_resolver_type=1, maxSearchTime=2):
         self.maxSearchTime = maxSearchTime
         self.factory_info_provider = factory_info_provider
         self.factory = self.factory_info_provider.factory
@@ -42,8 +68,11 @@ class ScheduleSolverRecursive:
             self.min_step_start[step.stepId] = step.start
 
         self.schedule_handler = ScheduleHandler(factory_info_provider)
-        self.conflict_resolver = ConflictResolver(self.schedule_handler)
         self.conflict_registry = ConflictRegistry()
+        if conflict_resolver_type == 1:
+            self.conflict_resolver = ConflictResolver(self.schedule_handler, self.conflict_registry)
+        else:
+            self.conflict_resolver = ConflictResolver2(self.schedule_handler, self.conflict_registry)
 
     def solve_optimal_for_demands(self, magnetic_constraints, max_search_time=3) -> ([ResolvedStep], str):
 
@@ -68,10 +97,11 @@ class ScheduleSolverRecursive:
         return resolved_steps_without_magnetic, status
 
     def solve_for_sorted_steps(self, sorted_steps: [UUID], magnetic_constraints, max_search_time=3) -> (
-    [ResolvedStep], str):
+            [ResolvedStep], str):
         logging.info("Starting sort steps")
 
         self.create_magnetic_constraints(magnetic_constraints)
+        sorted_steps.sort(key=lambda x: self.factory.steps[x].start, reverse=True)
 
         try:
             step_to_processing_count = self.reschedule(sorted_steps, 3)
@@ -115,7 +145,7 @@ class ScheduleSolverRecursive:
 
         return resolved_steps_without_magnetic, status
 
-    def resolve_conflicts(self, magnetic_constraints, max_search_time=3) -> ([ResolvedStep], str):
+    def resolve_conflicts(self, magnetic_constraints, max_search_time=10) -> ([ResolvedStep], str):
         logging.info("Starting resolve_conflicts")
 
         self.create_magnetic_constraints(magnetic_constraints)
@@ -123,7 +153,7 @@ class ScheduleSolverRecursive:
         intervals_with_conflicts = self.schedule_handler.find_all_intervals_with_conflict()
 
         try:
-            step_to_processing_count = self.reschedule(intervals_with_conflicts, 10)
+            step_to_processing_count = self.reschedule(intervals_with_conflicts, max_search_time)
         except ConflictException as e:
             return None, "UNKNOWN"
 
@@ -140,28 +170,55 @@ class ScheduleSolverRecursive:
                    accounting_deadlines=False):
         processing_count = 0
         step_to_processing_count = {}
+        step_to_empty_processing_count = {}
 
         for step in self.factory.steps.values():
             step_to_processing_count[step.stepId] = 0
+            step_to_empty_processing_count[step.stepId] = 0
 
         start_time = time.time()
         adjusted_steps = set()
         queue = deque()
         queue.extend(intervals_with_conflicts)
         logging.info(f"Starting rescheduling with time limit: {time_limit} seconds")
+        a = 0
+        b = 0
 
         while queue:
             processing_count += 1
-            if processing_count == 10:
-                logging.info("Processing count is 10")
+            if processing_count == 100:
+                suppress_logging()
+                logging.info("Processing count is 20")
 
             current_interval_id = queue.pop()
-            logging.info(f"Processing step: {current_interval_id}")
+            log_blank_line()
+            logging.info(
+                f"------- Processing step: {self.factory_info_provider.interval_to_name[current_interval_id]} ----------------------------------------------------------")
 
             # Проверка ограничения по времени
             if time.time() - start_time > time_limit:
+                enable_logging()
                 logging.warning("Time limit exceeded")
+
+                logging.info(
+                    f" Total adjusted tasks: {len(adjusted_steps)}. "
+                    f"Total time: {time.time() - start_time} seconds.")
+
+                logging.info(f"Processing count is {processing_count}")
+
+                steps_and_processing_count = [(step, count) for step, count in step_to_processing_count.items() if
+                                              count > 0]
+                steps_and_processing_count.sort(key=lambda x: self.factory_info_provider.interval_to_name[x[0]])
+
+                [logging.info(
+                    f"Step: {step} {self.factory_info_provider.interval_to_name[step]} has been processed {count} times and {step_to_empty_processing_count[step]} empty times")
+                    for step, count in
+                    steps_and_processing_count]
+                logging.info(f"a = {a} b = {b}")
+
                 raise ConflictException("Time limit exceeded")
+
+            empty_flag = True
 
             if current_interval_id in self.factory.steps.keys():
                 step_to_processing_count[current_interval_id] += 1
@@ -182,8 +239,11 @@ class ScheduleSolverRecursive:
             continue_flag = False
             overlapping_conflicts = self.schedule_handler.find_overlapping_intervals_conflict_with_current(
                 current_interval_id)
-            logging.info(f"Found {len(overlapping_conflicts)} overlapping Conflict for step {current_interval_id}")
-            logging.info(f"overlapping conflicts {overlapping_conflicts}")
+            if len(overlapping_conflicts) > 0:
+                log_blank_line()
+                logging.info(f"Found {len(overlapping_conflicts)} overlapping Conflict for step {current_interval_id}")
+                empty_flag = False
+                # logging.info(f"overlapping conflicts {overlapping_conflicts}")
 
             for conflict in overlapping_conflicts:
                 # фиксиурем кофликт пересечения
@@ -192,6 +252,8 @@ class ScheduleSolverRecursive:
                 adjusted_interval_id, updated_intervals_id = self.conflict_resolver.resolve_overlapping_intervals_conflict(
                     current_interval_id, conflict)
                 queue.append(adjusted_interval_id)
+                if adjusted_interval_id in self.factory_info_provider.moved_steps.keys():
+                    a += 1
                 queue.extendleft(updated_intervals_id)
                 if adjusted_interval_id == current_interval_id:
                     continue_flag = True
@@ -201,8 +263,12 @@ class ScheduleSolverRecursive:
 
             # Шаг 4: Обеспечение выполнения порядка степов
             step_order_conflicts = self.schedule_handler.find_step_order_conflicts_for_current(current_interval_id)
-            logging.info(f"Found {len(step_order_conflicts)} step order conflicts for interval {current_interval_id}")
-            logging.info(f"step order conflicts {step_order_conflicts}")
+            if len(step_order_conflicts) > 0:
+                empty_flag = False
+                log_blank_line()
+                logging.info(
+                    f"Found {len(step_order_conflicts)} step order conflicts for interval {current_interval_id}")
+                # logging.info(f"step order conflicts {step_order_conflicts}")
 
             for conflict in step_order_conflicts:
                 self.conflict_registry.add_steps_order_conflict(conflict)
@@ -210,6 +276,8 @@ class ScheduleSolverRecursive:
                 adjusted_interval_id, updated_intervals_id = self.conflict_resolver.resolve_steps_order_conflict(
                     current_interval_id, conflict)
                 queue.append(adjusted_interval_id)
+                if adjusted_interval_id in self.factory_info_provider.moved_steps.keys():
+                    b += 1
                 queue.extendleft(updated_intervals_id)
                 if adjusted_interval_id == current_interval_id:
                     continue_flag = True
@@ -230,8 +298,29 @@ class ScheduleSolverRecursive:
                     queue.extendleft(updated_intervals_id)
                     continue
 
+            if empty_flag and current_interval_id in self.factory.steps.keys():
+                step_to_empty_processing_count[current_interval_id] += 1
+                # step_to_processing_count[current_interval_id] -= 1
+
+        enable_logging()
+
         logging.info(
-            f"Rescheduling completed successfully. Total adjusted tasks: {len(adjusted_steps)}. Total time: {time.time() - start_time} seconds.")
+            f"Rescheduling completed successfully. Total adjusted tasks: {len(adjusted_steps)}. "
+            f"Total time: {time.time() - start_time} seconds.")
+
+        logging.info(f"Processing count is {processing_count}")
+
+        steps_and_processing_count = [(step, count) for step, count in step_to_processing_count.items() if count > 0]
+        steps_and_processing_count.sort(key=lambda x: self.factory_info_provider.interval_to_name[x[0]])
+
+        [logging.info(
+            f"Step: {step} {self.factory_info_provider.interval_to_name[step]} has been processed {count} times and {step_to_empty_processing_count[step]} empty times")
+            for step, count in
+            steps_and_processing_count]
+        logging.info(f"a = {a} b = {b}")
+        logging.info(
+            f"overlapping_offset = {self.conflict_resolver.overlapping_offset} step_order_offset = {self.conflict_resolver.step_order_offset}")
+
         return step_to_processing_count
 
     def set_magnetic_types_for_magnetic_moving(self, magnetic_constraints: Dict[UUID, MagneticConstraint],
@@ -350,3 +439,9 @@ class ScheduleSolverRecursive:
                 magnetic_constraints[step.stepId] = MagneticConstraint(step.stepId, step.start, step.start,
                                                                        MagneticType.NONE,
                                                                        1)
+
+    def find_steps_with_conflict(self):
+        intervals_with_conflict = self.schedule_handler.find_all_intervals_with_conflict()
+        steps_with_conflict = [intervalId for intervalId in intervals_with_conflict if
+                               intervalId in self.factory.steps.keys()]
+        return steps_with_conflict

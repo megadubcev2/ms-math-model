@@ -38,7 +38,6 @@ class ScheduleHandler:
 
         self.resolved_interval_mover = ResolvedIntervalMover(self.factory_info_provider.factory)
 
-
         self.resolved_intervals, _ = ResolvedIntervalCreator().create_all_resolved_intervals(
             self.factory, factory_info_provider.moved_steps)
         self.resolved_intervals = {interval.intervalId: interval for interval in self.resolved_intervals}
@@ -258,8 +257,6 @@ class ScheduleHandler:
             else:
                 break
 
-
-
         return list(overlapping_intervals)
 
     def find_overlapping_intervals_conflict_with_current(self, current_interval_id: UUID) -> List[
@@ -318,8 +315,6 @@ class ScheduleHandler:
             else:
                 break
 
-
-
         return overlapping_conflicts
 
     def find_step_order_conflicts_for_current(self, current_interval_id: UUID) -> List[StepOrderConflict]:
@@ -358,7 +353,8 @@ class ScheduleHandler:
         return intervals_id_with_conflict
 
     def get_resolved_steps(self):
-        return self.parser_resolved_step.resolved_intervals_to_resolved_steps(self.resolved_intervals.values())
+        return self.parser_resolved_step.resolved_intervals_to_resolved_steps(self.resolved_intervals.values(),
+                                                                              self.factory)
 
     def log_interval(self, interval_id: UUID):
         interval = self.resolved_intervals[interval_id]

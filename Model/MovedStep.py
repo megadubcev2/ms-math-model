@@ -7,3 +7,4 @@ from uuid import UUID
 class MovedStep:
     stepId: UUID
     newStart: int
+    initialStart: int

@@ -2,6 +2,7 @@ import logging
 from collections import defaultdict
 from typing import Dict, Tuple, List
 from uuid import UUID
+import string
 
 from Model.Step import Step
 from Model.StepOrder import StepOrder
@@ -17,6 +18,8 @@ class FactoryInfoProvider:
         self.factory = factory
         self.campaign_machine_to_task_machine = self.create_campaign_machine_to_task_machine()
 
+        self.machine_to_name = self.create_machine_to_name()
+
         self.connectivity_components = self.find_connected_components(self.factory.steps, self.factory.stepsOrder)
         self.light_connectivity_components = self.find_light_connected_components(self.factory.steps,
                                                                                   self.factory.stepsOrder)
@@ -26,6 +29,7 @@ class FactoryInfoProvider:
         self.step_to_step_orders = self.create_step_to_step_orders()
 
         self.moved_steps = moved_steps
+        self.interval_to_name = self.create_interval_to_name()
 
         logging.info("FactoryInfoProvider initialized")
 
@@ -122,9 +126,9 @@ class FactoryInfoProvider:
         # Для каждой машины соединяем cсоединяем степы подряд
         for step_ids in machine_steps.values():
             n = len(step_ids)
-            for i in range(n-1):
+            for i in range(n - 1):
                 a = step_ids[i]
-                b = step_ids[i+1]
+                b = step_ids[i + 1]
                 # Добавляем двустороннюю связь, если её ещё нет
                 if b not in graph[a]:
                     graph[a].append(b)
@@ -171,8 +175,6 @@ class FactoryInfoProvider:
             create_campaign_machine_to_step_machine[campaign_machine_id] = step_machine_id
         return create_campaign_machine_to_step_machine
 
-
-
     def create_step_to_step_orders(self) -> Dict[UUID, List[StepOrder]]:
         step_to_step_orders: Dict[UUID, List[StepOrder]] = {}
         for step in self.factory.steps.values():
@@ -210,3 +212,39 @@ class FactoryInfoProvider:
                 machines_connected_with_important_demands.add(step.machineId)
 
         return machines_connected_with_important_demands
+
+    def create_machine_to_name(self):
+        machine_to_name = {}
+        i = 0
+        for campaign_machine_id, task_machine_id in self.campaign_machine_to_task_machine.items():
+            machine_to_name[task_machine_id] = str(i // 26) + string.ascii_lowercase[i % 26]
+            machine_to_name[campaign_machine_id] = str(i // 26) + string.ascii_lowercase[i % 26] + "_c"
+
+            i += 1
+
+        return machine_to_name
+
+    def create_interval_to_name(self):
+        interval_to_name = {}
+
+        for machine_id in self.machine_to_name.keys():
+            steps_on_machine = [step for step in self.factory.steps.values() if step.machineId == machine_id]
+            steps_on_machine.sort(key=lambda x: x.start)
+            for i, step in enumerate(steps_on_machine):
+                interval_to_name[
+                    step.stepId] = f"{self.machine_to_name[machine_id]}_num_{i}_comp_{self.connectivity_components[step.stepId]}"
+                if step.fixed:
+                    interval_to_name[step.stepId] += "_fixed"
+                if step.stepId in self.moved_steps:
+                    interval_to_name[step.stepId] += "_moved"
+                else:
+                    if self.is_step_connected_with_moved_steps(step.stepId):
+                        interval_to_name[step.stepId] += "_moved_connected"
+
+            idle_periods_on_machine = [period for period in self.factory.idlePeriods if
+                                       period.machineId == machine_id]
+            idle_periods_on_machine.sort(key=lambda x: x.start)
+            for i, period in enumerate(idle_periods_on_machine):
+                interval_to_name[period.idlePeriodId] = f"{self.machine_to_name[machine_id]}_num_{i}_idle"
+
+        return interval_to_name

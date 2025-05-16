@@ -5,36 +5,38 @@ from Controller.DTO.MetadataLayer import MetadataLayer  # Предполагае
 
 # DTO для требований
 class DemandDto(BaseModel):
-    demandId: UUID
+    id: UUID
     dueDate: int
 
 # DTO для периодов простоя
 class IdlePeriodDto(BaseModel):
-    idlePeriodId: UUID
+    id: UUID
     machineId: UUID
     start: int
     duration: int
 
 # DTO для периодов замедления
 class SlowPeriodDto(BaseModel):
-    slowPeriodId: UUID
+    id: UUID
     machineId: UUID
     start: int
-    end: int
+    duration: int
     coefficient: str
 
 # DTO для смещённых шагов
 class MovedStepDto(BaseModel):
-    stepId: UUID
+    id: UUID
     newStart: int
 
 # DTO для шага
 class StepDto(BaseModel):
-    stepId: UUID
+    id: UUID
     machineId: UUID
     start: int
     duration: int
     initialDuration: int
+    setupStart: int
+    setupDuration: int
     fixed: bool
     operationId: UUID
     campaignId: Optional[UUID] = None
@@ -56,7 +58,7 @@ class StepOrderDto(BaseModel):
 
 # DTO для машины
 class MachineDto(BaseModel):
-    machineId: UUID
+    id: UUID
     start: int
     operationIdBeforeActive: Optional[UUID] = None
 
@@ -67,10 +69,12 @@ class NotOverlappingStepsPairDto(BaseModel):
 
 # DTO для кампании
 class CampaignDto(BaseModel):
-    campaignId: UUID
+    id: UUID
     machineId: UUID
     start: int
     duration: int
+    setupStart: int
+    setupDuration: int
     fixed: bool
     operationId: UUID
 

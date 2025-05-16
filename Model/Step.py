@@ -12,6 +12,8 @@ class Step:
     start: int
     duration: int
     initialDuration: int
+    setupStart: int
+    setupDuration: int
     fixed: bool
     operationId: UUID
     type: StepType

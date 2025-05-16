@@ -128,8 +128,8 @@ class ResolvedIntervalMover:
         Перемещает интервал,  чтобы в последовательности степов растояние было минимальным (overlapMin)
         """
 
-        logging.info(
-            f"Move_interval_min_step_order {current_interval.intervalId} for StepOrder {step_order}")
+        # logging.info(
+        #     f"Move_interval_min_step_order {current_interval.intervalId} for StepOrder {step_order}")
 
         if current_interval.intervalId == step_order.previousStepId:
             next_interval = reference_interval
@@ -173,8 +173,8 @@ class ResolvedIntervalMover:
         """
         Перемещает интервал,  чтобы в последовательности степов растояние было максимальным (overlapMax)
         """
-        logging.info(
-            f"Move_interval_max_step_order {current_interval.intervalId} for StepOrder {step_order}")
+        # logging.info(
+        #     f"Move_interval_max_step_order {current_interval.intervalId} for StepOrder {step_order}")
 
         if current_interval.intervalId == step_order.previousStepId:
             next_interval = reference_interval

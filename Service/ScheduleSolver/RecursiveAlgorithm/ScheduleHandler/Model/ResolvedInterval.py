@@ -26,6 +26,7 @@ class ResolvedInterval:
     isMoved: bool
     operationId: Optional[UUID] = None
     machineSetup: Optional[ResolvedMachineSetup] = None
+    name: Optional[str] = ""
 
     def log_state(self, message: str):
         #logging.info(f"{message}: {self.__dict__}")
