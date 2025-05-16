@@ -1,0 +1,938 @@
+{
+  "maxSearchTime": 60,
+  "factory": {
+    "steps": [
+      {
+        "id": "41ce723d-7d06-47f3-907c-e4a1b67ed202",
+        "machineId": "03d2f530-4378-43c5-8f39-a890c85c50f1",
+        "start": 1745486956,
+        "duration": 75000,
+        "initialDuration": 75000,
+        "setupStart": 1745486956,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "7eb74951-88f3-43d6-b66d-468ee0dbc103",
+        "operationId": "b24486b4-57af-4892-9e3e-bf0dc566ecae"
+      },
+      {
+        "id": "92e88bfb-292b-4cf9-9c27-2cc120ef51d8",
+        "machineId": "f91b8f45-2190-4530-8ff6-354f448b86dd",
+        "start": 1745550800,
+        "duration": 60000,
+        "initialDuration": 60000,
+        "setupStart": 1745550800,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "5dfd49c6-0752-4a10-a6be-f0226b6cfbac",
+        "operationId": "88b3990c-9b3a-4f37-bd90-62c7a63d1ff1"
+      },
+      {
+        "id": "acd659a3-9ee8-4b97-84c7-57f59ffd2d19",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "start": 1745670802,
+        "duration": 60000,
+        "initialDuration": 60000,
+        "setupStart": 1745670442,
+        "setupDuration": 360,
+        "fixed": false,
+        "demandId": "5dfd49c6-0752-4a10-a6be-f0226b6cfbac",
+        "operationId": "e4154cd9-7447-41ca-8450-0dba126d186a"
+      },
+      {
+        "id": "7c43fff9-e814-4b88-8e63-c3d8ade9482c",
+        "machineId": "03d2f530-4378-43c5-8f39-a890c85c50f1",
+        "start": 1745610801,
+        "duration": 60000,
+        "initialDuration": 60000,
+        "setupStart": 1745610801,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "5dfd49c6-0752-4a10-a6be-f0226b6cfbac",
+        "operationId": "3696fb26-b6ee-4fdd-96c1-8c841539cfdb"
+      },
+      {
+        "id": "94b0bccb-8e1e-49e8-9c17-3a401897d1d3",
+        "machineId": "f91b8f45-2190-4530-8ff6-354f448b86dd",
+        "start": 1745411955,
+        "duration": 75000,
+        "initialDuration": 75000,
+        "setupStart": 1745411955,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "7eb74951-88f3-43d6-b66d-468ee0dbc103",
+        "operationId": "595dcb63-ff77-4da6-bd9b-d55dc5e75e68"
+      },
+      {
+        "id": "8cba9a81-877d-4c38-abd4-49440b3c224e",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "start": 1745561957,
+        "duration": 75000,
+        "initialDuration": 75000,
+        "setupStart": 1745561597,
+        "setupDuration": 360,
+        "fixed": false,
+        "demandId": "7eb74951-88f3-43d6-b66d-468ee0dbc103",
+        "operationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1"
+      },
+      {
+        "id": "90248d3a-d6cd-4c28-9944-ccf34935e5f9",
+        "machineId": "f91b8f45-2190-4530-8ff6-354f448b86dd",
+        "start": 1745323491,
+        "duration": 45000,
+        "initialDuration": 45000,
+        "setupStart": 1745323491,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "3170276a-ef64-4f0f-9501-14aba7b4099c",
+        "operationId": "69c3a683-a2c4-488e-b713-cc9f1c178e08"
+      },
+      {
+        "id": "99003db9-28f0-44bb-9578-c7f24eb84414",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "start": 1745416842,
+        "duration": 45000,
+        "initialDuration": 45000,
+        "setupStart": 1745416842,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "3170276a-ef64-4f0f-9501-14aba7b4099c",
+        "operationId": "047b7b71-3d90-497b-8aad-71f410191bfa"
+      },
+      {
+        "id": "39be89c2-4a50-431a-beb6-be5734f1cd4c",
+        "machineId": "03d2f530-4378-43c5-8f39-a890c85c50f1",
+        "start": 1745368492,
+        "duration": 45000,
+        "initialDuration": 45000,
+        "setupStart": 1745368492,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "3170276a-ef64-4f0f-9501-14aba7b4099c",
+        "operationId": "327d9859-6ac6-46f9-b699-e87a9c6bcaa7"
+      }
+    ],
+    "campaigns": [],
+    "stepsOrder": [
+      {
+        "stepOrderType": "END_RUN",
+        "previousStepId": "92e88bfb-292b-4cf9-9c27-2cc120ef51d8",
+        "nextStepId": "7c43fff9-e814-4b88-8e63-c3d8ade9482c",
+        "overlapMin": 1,
+        "overlapMax": 7200
+      },
+      {
+        "stepOrderType": "END_RUN",
+        "previousStepId": "90248d3a-d6cd-4c28-9944-ccf34935e5f9",
+        "nextStepId": "39be89c2-4a50-431a-beb6-be5734f1cd4c",
+        "overlapMin": 1,
+        "overlapMax": 7200
+      },
+      {
+        "stepOrderType": "END_RUN",
+        "previousStepId": "94b0bccb-8e1e-49e8-9c17-3a401897d1d3",
+        "nextStepId": "41ce723d-7d06-47f3-907c-e4a1b67ed202",
+        "overlapMin": 1,
+        "overlapMax": 7200
+      },
+      {
+        "stepOrderType": "END_RUN",
+        "previousStepId": "39be89c2-4a50-431a-beb6-be5734f1cd4c",
+        "nextStepId": "99003db9-28f0-44bb-9578-c7f24eb84414",
+        "overlapMin": 1,
+        "overlapMax": 7200
+      },
+      {
+        "stepOrderType": "END_RUN",
+        "previousStepId": "7c43fff9-e814-4b88-8e63-c3d8ade9482c",
+        "nextStepId": "acd659a3-9ee8-4b97-84c7-57f59ffd2d19",
+        "overlapMin": 1,
+        "overlapMax": 7200
+      },
+      {
+        "stepOrderType": "END_RUN",
+        "previousStepId": "41ce723d-7d06-47f3-907c-e4a1b67ed202",
+        "nextStepId": "8cba9a81-877d-4c38-abd4-49440b3c224e",
+        "overlapMin": 1,
+        "overlapMax": 7200
+      }
+    ],
+    "machinesSetup": [
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "toOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "9e0855e8-1abb-4652-a5f8-80f0e641dd71",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "f862ed79-0904-485a-9cdf-92ad31c3cb04",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "92305af6-9c96-4044-b180-2d351306a06a",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "223b20aa-e723-4f64-9493-135021345a05",
+        "toOperationId": "ff2434cb-7b04-4037-b7cc-70b2fa39ee51",
+        "machineId": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "duration": 420
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "toOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "e96e263b-13fd-492c-8ab4-0cfabb617e92",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "aa362823-a9af-4758-adfe-aea5799af327",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "047b7b71-3d90-497b-8aad-71f410191bfa",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "13627839-86bb-40d4-9cf2-5a31623dd6f2",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "d4193d76-eedb-40a5-9829-bec7bb651b63",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      },
+      {
+        "fromOperationId": "090723a6-cea6-4b56-b1e1-fde1698f59b1",
+        "toOperationId": "e4154cd9-7447-41ca-8450-0dba126d186a",
+        "machineId": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "duration": 360
+      }
+    ],
+    "machines": [
+      {
+        "id": "36674257-3fd4-4576-9bc4-0fa691d1e10f",
+        "start": 1745312442
+      },
+      {
+        "id": "e080d8e9-bf4e-4a5e-9ee1-af8ed6912bfe",
+        "start": 1745312442
+      },
+      {
+        "id": "03d2f530-4378-43c5-8f39-a890c85c50f1",
+        "start": 1745312442
+      },
+      {
+        "id": "3dffe189-09e5-4f24-8bf4-b3c6bea674ac",
+        "start": 1745312442
+      },
+      {
+        "id": "c5b550ce-6051-4cd5-b7c5-60c9851a33f0",
+        "start": 1745312442
+      },
+      {
+        "id": "f91b8f45-2190-4530-8ff6-354f448b86dd",
+        "start": 1745312442
+      },
+      {
+        "id": "2f68d4e6-3c7f-4133-9a3e-bb8c26645e7f",
+        "start": 1745312442
+      }
+    ],
+    "idlePeriods": [],
+    "slowPeriods": []
+  }
+}

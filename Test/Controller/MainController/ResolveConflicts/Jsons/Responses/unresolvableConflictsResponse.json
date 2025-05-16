@@ -1,0 +1,40 @@
+{
+    "metadata": {
+        "messages": {
+            "ERROR": [
+                {
+                    "mnemoCode": "error.OverlappingIntervalsConflict",
+                    "payload": {
+                        "first_interval": {
+                            "id": "90248d3a-d6cd-4c28-9944-ccf34935e5f9",
+                            "type": "STEP"
+                        },
+                        "second_interval": {
+                            "id": "a57a3444-7b39-4135-bdff-b8fee128e922",
+                            "type": "IDLE_PERIOD"
+                        }
+                    }
+                },
+                {
+                    "mnemoCode": "error.StepOrderConflict",
+                    "payload": {
+                        "conflict_boundary": "MIN",
+                        "next_step_id": "39be89c2-4a50-431a-beb6-be5734f1cd4c",
+                        "previous_step_id": "90248d3a-d6cd-4c28-9944-ccf34935e5f9",
+                        "step_order": {
+                            "nextStepId": "39be89c2-4a50-431a-beb6-be5734f1cd4c",
+                            "overlapMax": 7200,
+                            "overlapMin": 1,
+                            "previousStepId": "90248d3a-d6cd-4c28-9944-ccf34935e5f9",
+                            "stepOrderType": "END_RUN"
+                        },
+                        "step_order_type": "END_RUN"
+                    }
+                }
+            ],
+            "INFO": [],
+            "WARNING": []
+        }
+    },
+    "payload": null
+}

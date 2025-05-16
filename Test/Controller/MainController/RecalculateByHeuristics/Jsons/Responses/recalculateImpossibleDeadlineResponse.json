@@ -1,0 +1,77 @@
+{
+    "metadata": null,
+    "payload": [
+        {
+            "duration": 75000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745432443,
+            "stepId": "41ce723d-7d06-47f3-907c-e4a1b67ed202"
+        },
+        {
+            "duration": 75000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745357442,
+            "stepId": "94b0bccb-8e1e-49e8-9c17-3a401897d1d3"
+        },
+        {
+            "duration": 75000,
+            "entityType": "STEP",
+            "setupDuration": 360,
+            "setupStart": 1745507084,
+            "start": 1745507444,
+            "stepId": "8cba9a81-877d-4c38-abd4-49440b3c224e"
+        },
+        {
+            "duration": 60000,
+            "entityType": "STEP",
+            "setupDuration": 360,
+            "setupStart": 1745582444,
+            "start": 1745582804,
+            "stepId": "acd659a3-9ee8-4b97-84c7-57f59ffd2d19"
+        },
+        {
+            "duration": 60000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745515604,
+            "stepId": "7c43fff9-e814-4b88-8e63-c3d8ade9482c"
+        },
+        {
+            "duration": 60000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745448404,
+            "stepId": "92e88bfb-292b-4cf9-9c27-2cc120ef51d8"
+        },
+        {
+            "duration": 45000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745312442,
+            "stepId": "90248d3a-d6cd-4c28-9944-ccf34935e5f9"
+        },
+        {
+            "duration": 45000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745402444,
+            "stepId": "99003db9-28f0-44bb-9578-c7f24eb84414"
+        },
+        {
+            "duration": 45000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745357443,
+            "stepId": "39be89c2-4a50-431a-beb6-be5734f1cd4c"
+        }
+    ]
+}

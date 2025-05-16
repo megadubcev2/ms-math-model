@@ -1,0 +1,158 @@
+{
+  "factory": {
+    "steps": [
+      {
+        "id": "c34bbd89-6ac5-4534-9c66-613bcd2a213e",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "start": 1751034996,
+        "duration": 75000,
+        "initialDuration": 75000,
+        "setupStart": 1751034996,
+        "setupDuration": 0,
+        "fixed": false,
+        "demandId": "bacdff7a-8b41-452f-806b-1ce67aab1309",
+        "operationId": "53eb7171-6466-4749-b02e-4e5f81324926"
+      },
+      {
+        "id": "aef66808-ccd7-4751-b4e6-e534f6c80df0",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "start": 1751260236,
+        "duration": 120000,
+        "initialDuration": 120000,
+        "setupStart": 1751260116,
+        "setupDuration": 120,
+        "fixed": false,
+        "demandId": "567fdb73-b0a4-4804-9a3c-b6c1e12dd962",
+        "operationId": "9391466c-bf12-41b6-84d9-549c75203efb"
+      },
+      {
+        "id": "a233cc1a-75db-47ec-93cc-c6a44b02b93e",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "start": 1751110116,
+        "duration": 150000,
+        "initialDuration": 150000,
+        "setupStart": 1751109996,
+        "setupDuration": 120,
+        "fixed": false,
+        "demandId": "4c617336-bd2f-4b20-8aea-f17d703ad686",
+        "operationId": "00e415ef-1b9d-4c39-914c-da215f19a867"
+      }
+    ],
+    "campaigns": [],
+    "stepsOrder": [],
+    "machinesSetup": [
+      {
+        "fromOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "toOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "machineId": "c531c949-0129-4c7a-869b-e7daceca8e8d",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "toOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "machineId": "c531c949-0129-4c7a-869b-e7daceca8e8d",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "toOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "machineId": "c531c949-0129-4c7a-869b-e7daceca8e8d",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "toOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "machineId": "c531c949-0129-4c7a-869b-e7daceca8e8d",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "toOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "machineId": "c531c949-0129-4c7a-869b-e7daceca8e8d",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "toOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "machineId": "c531c949-0129-4c7a-869b-e7daceca8e8d",
+        "duration": 180
+      },
+      {
+        "fromOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "toOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "toOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "toOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "toOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "toOperationId": "00e415ef-1b9d-4c39-914c-da215f19a867",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "duration": 120
+      },
+      {
+        "fromOperationId": "9391466c-bf12-41b6-84d9-549c75203efb",
+        "toOperationId": "53eb7171-6466-4749-b02e-4e5f81324926",
+        "machineId": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "duration": 120
+      }
+    ],
+    "machines": [
+      {
+        "id": "42553054-d9cc-4b4c-a403-85a3be9a938e",
+        "start": 1745310693
+      },
+      {
+        "id": "d1a47284-0ef5-4ab8-a085-dae5a4fed16a",
+        "start": 1745310693
+      },
+      {
+        "id": "46887157-cf1f-42df-a720-49b2f4582b3b",
+        "start": 1745310693
+      },
+      {
+        "id": "1b0e6410-90c3-4890-86db-11618b3205a5",
+        "start": 1745310693
+      },
+      {
+        "id": "c531c949-0129-4c7a-869b-e7daceca8e8d",
+        "start": 1745310693
+      },
+      {
+        "id": "ecd56791-1268-47ec-aca9-fe8452bbe036",
+        "start": 1745310693
+      },
+      {
+        "id": "dc803580-5793-491b-b3b2-b5e6d299c63b",
+        "start": 1745310693
+      }
+    ],
+    "idlePeriods": [],
+    "slowPeriods": []
+  },
+  "maxSearchTime": 60,
+  "movementType": "SOFT",
+  "movedSteps": [
+    {
+      "id": "aef66808-ccd7-4751-b4e6-e534f6c80df0",
+      "newStart": 1751072420
+    }
+  ]
+}

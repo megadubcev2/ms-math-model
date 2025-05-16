@@ -1,0 +1,29 @@
+{
+    "metadata": null,
+    "payload": [
+        {
+            "duration": 75000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745499642,
+            "stepId": "41ce723d-7d06-47f3-907c-e4a1b67ed202"
+        },
+        {
+            "duration": 75000,
+            "entityType": "STEP",
+            "setupDuration": null,
+            "setupStart": null,
+            "start": 1745417442,
+            "stepId": "94b0bccb-8e1e-49e8-9c17-3a401897d1d3"
+        },
+        {
+            "duration": 75000,
+            "entityType": "STEP",
+            "setupDuration": 360,
+            "setupStart": 1745581482,
+            "start": 1745581842,
+            "stepId": "8cba9a81-877d-4c38-abd4-49440b3c224e"
+        }
+    ]
+}

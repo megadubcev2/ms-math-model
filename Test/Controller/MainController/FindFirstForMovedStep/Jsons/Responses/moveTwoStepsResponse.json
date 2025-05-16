@@ -1,0 +1,21 @@
+{
+    "metadata": null,
+    "payload": [
+        {
+            "duration": 120000,
+            "entityType": "STEP",
+            "setupDuration": 120,
+            "setupStart": 1751157255,
+            "start": 1751157375,
+            "stepId": "aef66808-ccd7-4751-b4e6-e534f6c80df0"
+        },
+        {
+            "duration": 150000,
+            "entityType": "STEP",
+            "setupDuration": 120,
+            "setupStart": 1751277375,
+            "start": 1751277495,
+            "stepId": "a233cc1a-75db-47ec-93cc-c6a44b02b93e"
+        }
+    ]
+}
